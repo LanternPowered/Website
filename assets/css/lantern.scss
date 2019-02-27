@@ -1,0 +1,173 @@
+$navbar-brand-font-size: 1.5rem;
+$navbar-font-size: 1.5rem;
+
+$lantern-dark-green: #3d695f;
+$lantern-green: #63a48f;
+$lantern-extra-light-green: #93ceb8;
+
+$navbar-light-color: darken($lantern-dark-green, 0.2);
+$navbar-light-hover-color: rgba(black, .95);
+
+$light-color: rgba(white, .95);
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Mina');
+
+body {
+  font-family: 'Mina', serif;
+}
+
+.padding-top-10px {
+  padding-top: 10px;
+}
+
+.padding-top-20px {
+  padding-top: 20px;
+}
+
+.padding-30px {
+  padding: 30px;
+}
+
+.padding-40px {
+  padding: 40px;
+}
+
+.background-lantern-green {
+  background-color: $lantern-green;
+}
+
+.background-lantern-dark-green {
+  background-color: $lantern-dark-green;
+}
+
+.home-background {
+  object-fit: cover;
+  width: 100vw;
+  max-width:100%;
+  min-height: 40vh;
+  background-size: cover;
+  background-position: center center;
+  z-index: -1;
+  border-bottom: 5px solid $lantern-green;
+}
+
+.home-navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-scrolled {
+  background-color: rgba(darken($lantern-extra-light-green, 0.2), 0.85);
+  //border-bottom: 1px solid $navbar-light-color;
+}
+
+.navbar-brand {
+  color: $navbar-light-color !important;
+  span {
+    vertical-align: bottom;
+    font-size: 1.6rem;
+    padding-left: 5px;
+  }
+}
+
+.nav-item a,
+.navbar-brand {
+  text-decoration: none;
+}
+
+.navbar-collapse {
+  background-color: transparent;
+
+  .nav-item {
+    font-size: $navbar-font-size;
+    text-align: center;
+
+    .nav-link.btn {
+      font-size: $navbar-font-size;
+    }
+
+    .icon-info {
+      padding-left: 12px;
+
+      @media(min-width: map-get($grid-breakpoints, "lg")) {
+        display: none;
+      }
+    }
+  }
+
+  @media(max-width: map-get($grid-breakpoints, "lg") - 1) {
+    margin-top: 10px;
+    background-color: rgba(white, .9);
+    border-radius: 3px;
+    border: 1px solid rgba(black, .1);
+
+    .nav-item {
+      padding: 0 1em;
+
+      &:hover {
+        background-color: rgba(black, .1);
+      }
+    }
+  }
+}
+
+footer {
+  padding: 10px 0;
+  background-color: $lantern-dark-green;
+  color: $light-color;
+
+  p {
+    margin: 0;
+  }
+}
+
+.text-light {
+  color: $light-color;
+}
+
+h1,
+h2 {
+  width: 100%;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.title {
+  h1 {
+    font-size: 3rem;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+a {
+  text-decoration: underline;
+  color: white;
+
+  &:hover {
+    color: $navbar-light-hover-color;
+  }
+}
+
+.row {
+  .text-center,
+  .text-center *,
+  &.text-center,
+  &.text-center * {
+    width: 100%;
+  }
+}
+
+/*
+.background-lantern-green a:hover {
+  color: $navbar-light-hover-color;
+}
+
+.background-lantern-dark-green a:hover {
+  color: $navbar-light-hover-color;
+}*/

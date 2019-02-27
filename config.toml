@@ -1,0 +1,14 @@
+baseURL = "https://lanternpowered.org"
+languageCode = "en-us"
+
+# Title of the website
+title = "Lantern"
+
+# Do not inject generator meta tag on homepage
+disableHugoGeneratorInject = true
+
+# The directory for static assets
+staticDir = "static"
+
+# The publish directory
+publishDir = "public"

@@ -1,0 +1,27 @@
+{
+  "name": "lanternpowered.org",
+  "version": "1.0.0",
+  "description": "A website for Lantern.",
+  "author": "Seppe Volkaerts",
+  "license": "See LICENSE.txt",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "fontawesome": "^5.6.3",
+    "gulp": "^4.0.0",
+    "gulp-real-favicon": "^0.3.2",
+    "hugo-bin": "^0.42.0",
+    "jquery": "^3.3.1",
+    "lazy-value": "^1.0.0",
+    "mkdirp": "^0.5.1",
+    "popper.js": "^1.14.7",
+    "postcss-cli": "^6.1.2",
+    "toml": "^3.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "hugo-bin": {
+    "buildTags": "extended"
+  }
+}

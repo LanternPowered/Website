@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-light {{ if .IsHome }}home-navbar{{ end }}">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="art/logo/lantern.svg" alt="Logo" width="40px"><span>Lantern</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/LanternPowered" data-toggle="tooltip" data-placement="bottom" title="GitHub">
+                        <i class="fab fa-github"></i><span class="icon-info">GitHub</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://discord.gg/WQd25d2" data-toggle="tooltip" data-placement="bottom" title="Discord">
+                        <i class="fab fa-discord"></i><span class="icon-info">Discord</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://twitter.com/LanternPowered" data-toggle="tooltip" data-placement="bottom" title="Twitter">
+                        <i class="fab fa-twitter"></i><span class="icon-info">Twitter</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<script>
+    $(() => {
+        updateTooltips();
+
+        $(window).resize(updateTooltips);
+        $(window).scroll(function(){
+            if ($(window).scrollTop() > 20) {
+                $('nav').addClass('navbar-scrolled');
+            } else {
+                $('nav').removeClass('navbar-scrolled');
+            }
+        });
+    });
+
+    function updateTooltips() {
+        const target = $('[data-toggle="tooltip"]');
+        if ($(this).width() < 992) {
+            target.tooltip('disable');
+        } else {
+            target.tooltip('enable');
+        }
+    }
+</script>
