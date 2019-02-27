@@ -35,21 +35,40 @@ body {
 
 .background-lantern-green {
   background-color: $lantern-green;
+  color: $light-color;
 }
 
 .background-lantern-dark-green {
   background-color: $lantern-dark-green;
+  color: $light-color;
 }
 
 .home-background {
   object-fit: cover;
   width: 100vw;
-  max-width:100%;
+  max-width: 100%;
   min-height: 40vh;
   background-size: cover;
   background-position: center center;
-  z-index: -1;
-  border-bottom: 5px solid $lantern-green;
+  z-index: -2;
+}
+
+.navbar {
+  .container {
+    @each $breakpoint in ('lg', 'xl') {
+      @include media-breakpoint-up($breakpoint) {
+        max-width:  map-get($container-max-widths, $breakpoint) / 2;
+        padding: 0;
+
+        &:nth-child(1) {
+          margin-right: 0;
+        }
+        &:nth-child(2) {
+          margin-left: 0;
+        }
+      }
+    }
+  }
 }
 
 .home-navbar {
@@ -60,7 +79,6 @@ body {
 
 .navbar-scrolled {
   background-color: rgba(darken($lantern-extra-light-green, 0.2), 0.85);
-  //border-bottom: 1px solid $navbar-light-color;
 }
 
 .navbar-brand {
@@ -113,18 +131,19 @@ body {
   }
 }
 
+p {
+  margin-bottom: 0;
+  padding-bottom: 1rem;
+}
+
 footer {
   padding: 10px 0;
   background-color: $lantern-dark-green;
   color: $light-color;
 
   p {
-    margin: 0;
+    padding-bottom: 0;
   }
-}
-
-.text-light {
-  color: $light-color;
 }
 
 h1,
@@ -155,6 +174,9 @@ a {
 }
 
 .row {
+  margin: auto;
+  width: 100%;
+
   .text-center,
   .text-center *,
   &.text-center,
@@ -162,12 +184,3 @@ a {
     width: 100%;
   }
 }
-
-/*
-.background-lantern-green a:hover {
-  color: $navbar-light-hover-color;
-}
-
-.background-lantern-dark-green a:hover {
-  color: $navbar-light-hover-color;
-}*/

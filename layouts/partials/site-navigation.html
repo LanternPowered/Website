@@ -1,9 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-light {{ if .IsHome }}home-navbar{{ end }}">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src="art/logo/lantern.svg" alt="Logo" width="40px"><span>Lantern</span></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <div class="container">
+        <a class="navbar-brand" href="#"><img src="art/logo/lantern.svg" alt="Logo" width="40px"><span>Lantern</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="container">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -26,7 +28,7 @@
     </div>
 </nav>
 <script>
-    $(() => {
+    $(function () {
         updateTooltips();
 
         $(window).resize(updateTooltips);
@@ -40,7 +42,7 @@
     });
 
     function updateTooltips() {
-        const target = $('[data-toggle="tooltip"]');
+        var target = $('[data-toggle="tooltip"]');
         if ($(this).width() < 992) {
             target.tooltip('disable');
         } else {

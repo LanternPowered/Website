@@ -1,5 +1,5 @@
 config = {
-    partial: 'layouts/partials/site-favicon.html',
+    partial: 'site-favicon.html',
     logo: 'art/logo/lantern.svg',
     design: {
         ios: {
