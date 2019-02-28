@@ -53,18 +53,63 @@ body {
   z-index: -2;
 }
 
+$navbar-scrolled-background: rgba(darken($lantern-extra-light-green, 0.2), 0.85);
+
 .navbar {
+  padding: 0;
+
+  @include media-breakpoint-up('lg') {
+    display: table;
+  }
+
   .container {
     @each $breakpoint in ('lg', 'xl') {
-      @include media-breakpoint-up($breakpoint) {
-        max-width:  map-get($container-max-widths, $breakpoint) / 2;
+      @include media-breakpoint-only($breakpoint) {
+        display: table-cell;
+        vertical-align: middle;
+        width: 50%;
         padding: 0;
+        background: transparent none;
 
-        &:nth-child(1) {
-          margin-right: 0;
+        &.navbar-scrolled {
+          background-color: $navbar-scrolled-background;
         }
-        &:nth-child(2) {
-          margin-left: 0;
+
+        & > div {
+          width: map-get($container-max-widths, $breakpoint) / 2;
+          padding: $navbar-padding-y $navbar-padding-x;
+        }
+
+        &:nth-child(1) > div {
+          float: right;
+        }
+        &:nth-child(2) > div {
+          float: left;
+        }
+      }
+    }
+
+    @each $breakpoint in ('xs', 'sm', 'md') {
+      @include media-breakpoint-only($breakpoint) {
+        width: 100%;
+        max-width: 100%;
+
+        button {
+          float: right;
+        }
+
+        &:nth-child(1).navbar-scrolled {
+          background-color: $navbar-scrolled-background;
+        }
+
+        & > div {
+          margin: 0 auto;
+          $max-width: map-get($container-max-widths, $breakpoint);
+          @if ($max-width == null) {
+            $max-width: 100%;
+          }
+          width: $max-width;
+          padding: $navbar-padding-y $navbar-padding-x;
         }
       }
     }
@@ -75,10 +120,6 @@ body {
   position: fixed;
   width: 100%;
   z-index: 1000;
-}
-
-.navbar-scrolled {
-  background-color: rgba(darken($lantern-extra-light-green, 0.2), 0.85);
 }
 
 .navbar-brand {
@@ -109,14 +150,13 @@ body {
     .icon-info {
       padding-left: 12px;
 
-      @media(min-width: map-get($grid-breakpoints, "lg")) {
+      @include media-breakpoint-up('lg') {
         display: none;
       }
     }
   }
 
-  @media(max-width: map-get($grid-breakpoints, "lg") - 1) {
-    margin-top: 10px;
+  @include media-breakpoint-down('lg') {
     background-color: rgba(white, .9);
     border-radius: 3px;
     border: 1px solid rgba(black, .1);
