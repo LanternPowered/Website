@@ -7,6 +7,7 @@ $lantern-extra-light-green: #93ceb8;
 
 $navbar-light-color: darken($lantern-dark-green, 0.2);
 $navbar-light-hover-color: rgba(black, .95);
+$navbar-scrolled-background-color: rgba(darken($lantern-extra-light-green, 0.2), 0.85);
 
 $light-color: rgba(white, .95);
 
@@ -15,6 +16,18 @@ $light-color: rgba(white, .95);
 
 body {
   font-family: 'Mina', serif;
+}
+
+.text-3rem {
+  font-size: 3rem;
+}
+
+.text-5rem {
+  font-size: 5rem;
+}
+
+.text-6rem {
+  font-size: 6rem;
 }
 
 .padding-top-10px {
@@ -53,7 +66,15 @@ body {
   z-index: -2;
 }
 
-$navbar-scrolled-background: rgba(darken($lantern-extra-light-green, 0.2), 0.85);
+$section-padding: 25px;
+
+section {
+  padding-bottom: $section-padding;
+
+  &:not(:first-of-type) {
+    padding-top: $section-padding;
+  }
+}
 
 .navbar {
   padding: 0;
@@ -72,7 +93,7 @@ $navbar-scrolled-background: rgba(darken($lantern-extra-light-green, 0.2), 0.85)
         background: transparent none;
 
         &.navbar-scrolled {
-          background-color: $navbar-scrolled-background;
+          background-color: $navbar-scrolled-background-color;
         }
 
         & > div {
@@ -99,7 +120,7 @@ $navbar-scrolled-background: rgba(darken($lantern-extra-light-green, 0.2), 0.85)
         }
 
         &:nth-child(1).navbar-scrolled {
-          background-color: $navbar-scrolled-background;
+          background-color: $navbar-scrolled-background-color;
         }
 
         & > div {
@@ -156,7 +177,7 @@ $navbar-scrolled-background: rgba(darken($lantern-extra-light-green, 0.2), 0.85)
     }
   }
 
-  @include media-breakpoint-down('lg') {
+  @include media-breakpoint-down('md') {
     background-color: rgba(white, .9);
     border-radius: 3px;
     border: 1px solid rgba(black, .1);

@@ -33,21 +33,25 @@
 </nav>
 <script>
     $(function () {
-        updateTooltips();
+        updateTooltips($('[data-toggle="tooltip"]'));
+        updateNavbar();
 
-        $(window).resize(updateTooltips);
-        $(window).scroll(function() {
-            var target = $('nav .container');
-            if ($(window).scrollTop() > 20) {
-                target.addClass('navbar-scrolled');
-            } else {
-                target.removeClass('navbar-scrolled');
-            }
+        $(window).resize(function () {
+            updateTooltips($('nav [data-toggle="tooltip"]'));
         });
+        $(window).scroll(updateNavbar);
     });
 
-    function updateTooltips() {
-        var target = $('[data-toggle="tooltip"]');
+    function updateNavbar() {
+        var target = $('nav .container');
+        if ($(window).scrollTop() > 20) {
+            target.addClass('navbar-scrolled');
+        } else {
+            target.removeClass('navbar-scrolled');
+        }
+    }
+
+    function updateTooltips(target) {
         if ($(this).width() < 992) {
             target.tooltip('disable');
         } else {
