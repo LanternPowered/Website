@@ -41,8 +41,12 @@
 </head>
 
 <body>
-{{ block "header" . }}{{ partial "site-navigation.html" . }}{{ end }}
-{{ block "main" . }}{{ end }}
+<div class="content-wrap">
+    <div class="content">
+        {{ block "header" . }}{{ partial "site-navigation.html" . }}{{ end }}
+        {{ block "main" . }}{{ end }}
+    </div>
+</div>
 {{ block "footer" . }}{{ partial "site-footer.html" . }}{{ end }}
 {{ block "scripts" . }}{{ partial "site-scripts.html" . }}{{ end }}
 </body>

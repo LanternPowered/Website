@@ -11,11 +11,17 @@ $navbar-scrolled-background-color: rgba(darken($lantern-extra-light-green, 0.2),
 
 $light-color: rgba(white, .95);
 
+$footer-height: 50px;
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Mina');
 
 body {
   font-family: 'Mina', serif;
+}
+
+.no-top-padding {
+  padding-top: 0 !important;
 }
 
 .text-3rem {
@@ -28,6 +34,10 @@ body {
 
 .text-6rem {
   font-size: 6rem;
+}
+
+.margin-top-100px {
+  margin-top: 100px;
 }
 
 .padding-top-10px {
@@ -70,14 +80,15 @@ $section-padding: 25px;
 
 section {
   padding-bottom: $section-padding;
-
-  &:not(:first-of-type) {
-    padding-top: $section-padding;
-  }
+  padding-top: $section-padding;
 }
 
 .navbar {
   padding: 0;
+  margin: auto;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
 
   @include media-breakpoint-up('lg') {
     display: table;
@@ -135,12 +146,10 @@ section {
       }
     }
   }
-}
 
-.home-navbar {
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
+  .collapse.show {
+    margin-bottom: $navbar-padding-y;
+  }
 }
 
 .navbar-brand {
@@ -198,7 +207,7 @@ p {
 }
 
 footer {
-  padding: 10px 0;
+  padding: 15px 0;
   background-color: $lantern-dark-green;
   color: $light-color;
 
@@ -210,10 +219,6 @@ footer {
 h1,
 h2 {
   width: 100%;
-}
-
-h1 {
-  font-size: 3rem;
 }
 
 .title {
@@ -244,4 +249,27 @@ a {
   &.text-center * {
     width: 100%;
   }
+}
+
+// Fixed footer at the bottom of the page
+
+html, body {
+  height: 100%;
+  background-color: $lantern-extra-light-green;
+}
+
+.content-wrap {
+  min-height: 100%;
+}
+
+.content {
+  overflow: auto;
+  padding-bottom: $footer-height;
+}
+
+footer {
+  position: relative;
+  margin-top: -$footer-height;
+  height: $footer-height;
+  clear: both;
 }
