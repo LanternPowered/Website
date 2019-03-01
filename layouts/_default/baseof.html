@@ -14,14 +14,19 @@
 
     {{/* NOTE: For Production make sure you add `HUGO_ENV="production"` before your build command */}}
     {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") }}
-    <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+    <meta name="ROBOTS" content="INDEX, FOLLOW">
     {{ else }}
-    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
     {{ end }}
 
     {{ $css := resources.Get "css/lantern.scss" | resources.ToCSS | resources.Minify }}
-    {{ $cssSecure := $css | resources.Fingerprint "sha512" }}
-    <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{/*$cssSecure.Data.Integrity*/}}" />
+    {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") }}
+        {{ $cssSecure := $css | resources.Fingerprint "sha512" }}
+        <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $cssSecure.Data.Integrity }}" />
+    {{ else }}
+        <link rel="stylesheet" href="{{ $css.Permalink }}" />
+    {{ end }}
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 

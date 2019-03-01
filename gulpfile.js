@@ -47,6 +47,7 @@ gulp.task('dev', done => execHugoTask(['server'], done));
 
 // Start the hugo build task
 gulp.task('build', done => {
+    process.env.HUGO_ENV = 'production';
     execHugoTask([], done)
 });
 
