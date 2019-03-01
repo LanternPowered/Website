@@ -173,6 +173,7 @@
       background-color: rgba(white, 0.1);
       border-radius: $discord-connect-button-radius;
       transition: opacity .25s ease-out;
+      text-align: center;
 
       &:hover {
         opacity: 0.5;
