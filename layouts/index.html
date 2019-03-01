@@ -37,14 +37,14 @@
             </div>
         </section>
         <section class="background-lantern-green">
-            <div class="container text-center">
+            <div class="container">
                 <div class="row padding-top-10px justify-content-md-center">
                     <div class="col col-12 col-md-5 text-center padding-top-10px m-auto">
                         <h2>Community</h2>
                         <p>The community is located in a Discord server. This is the place where we talk about development, answer questions, etc. Feel free to join us!</p>
                     </div>
-                    <div class="col col-12 col-md-5 text-center padding-top-10px">
-                        <iframe src="https://discordapp.com/widget?id=263723943054016513&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
+                    <div class="col col-12 col-md-5 padding-top-10px">
+                        {{ partial "site-discord.html" . }}
                     </div>
                 </div>
             </div>

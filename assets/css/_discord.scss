@@ -1,0 +1,182 @@
+@import "discord_variables"; // Just for auto completion, will be removed
+
+.discord-widget {
+  font-family: $discord-font-family;
+  font-size: $discord-font-size;
+  color: $discord-font-color;
+  overflow: hidden;
+
+  a:hover {
+    color: $discord-font-color;
+  }
+
+  .dw-header {
+    background-color: $discord-header-color;
+    padding: $discord-header-padding;
+    height: 100%;
+    display: flex;
+    border-radius: $discord-border-radius $discord-border-radius 0 0;
+
+    .dw-header-count,
+    .dw-logo {
+      padding-right: $discord-header-padding;
+    }
+
+    .dw-logo {
+      transition: opacity .25s ease-out;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    .dw-header-count {
+      line-height: $discord-font-size;
+      padding: 0;
+      text-align: right;
+      align-self: center;
+      flex: 1;
+
+      .count {
+        padding-right: 3px;
+      }
+    }
+  }
+
+  .dw-body {
+    background-color: $discord-body-color;
+    padding: $discord-body-padding;
+    text-align: left;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: $discord-body-height;
+
+    @if ($discord-background-left-path != null) {
+      background-image: $discord-background-left-path, $discord-background-right-path;
+      background-size: $discord-background-left-size, $discord-background-right-size;
+      background-position: 0 100%, 100% 100%;
+    } @else {
+      background-image: $discord-background-right-path;
+      background-size: $discord-background-right-size;
+      background-position: 100% 100%;
+    }
+    background-repeat: no-repeat;
+
+    &::-webkit-scrollbar {
+      background-clip: padding-box;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-clip: padding-box;
+      border: $discord-body-scrollbar-padding solid transparent;
+      $actualWidth: $discord-body-scrollbar-width + $discord-body-scrollbar-padding * 2;
+      border-radius: $actualWidth / 2;
+      width: $actualWidth;
+      background-color: rgba(white, 0.1);
+    }
+
+    .dw-members-online {
+      color: $discord-members-font-color;
+
+      .dw-members-online-title {
+        text-transform: uppercase;
+      }
+
+      .dw-members {
+        padding-top: 10px;
+
+        .dw-member {
+          padding-left: 10px;
+          display: flex;
+          align-items: center;
+
+          &:not(:last-of-type) {
+            padding-bottom: 5px;
+          }
+
+          .dw-member-game {
+            text-align: right;
+            flex: 1;
+          }
+
+          .dw-member-name {
+            margin-right: $discord-member-avatar-size / 2;
+          }
+
+          .dw-member-avatar {
+            display: inline;
+            position: relative;
+            margin-right: $discord-member-avatar-size / 2;
+
+            img {
+              border-radius: $discord-member-avatar-size / 2;
+              width: $discord-member-avatar-size;
+              height: $discord-member-avatar-size;
+              vertical-align: sub;
+            }
+
+            .dw-member-status {
+              width: $discord-member-status-size;
+              height: $discord-member-status-size;
+              border-radius: $discord-member-status-size / 2;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+
+              &.dw-member-status-online {
+                background-color: $discord-member-status-online-color;
+              }
+
+              &.dw-member-status-dnd {
+                background-color: $discord-member-status-dnd-color;
+              }
+
+              &.dw-member-status-idle {
+                background-color: $discord-member-status-idle-color;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .dw-channels {
+      margin-bottom: 30px;
+      font-size: $discord-channel-font-size;
+      font-weight: $discord-channel-font-weight;
+
+      .dw-channel {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .dw-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $discord-footer-padding;
+    background: $discord-footer-color;
+    border-radius: 0 0 $discord-border-radius $discord-border-radius;
+    border-top: 1px solid darken($discord-footer-color, 4);
+
+    .dw-footer-info {
+      opacity: 0.1;
+    }
+
+    .dw-connect-btn {
+      width: $discord-connect-button-width;
+      flex-basis: auto;
+      text-decoration: none;
+      padding: $discord-connect-button-padding;
+      margin-left: nth($discord-footer-padding, 2);
+      background-color: rgba(white, 0.1);
+      border-radius: $discord-connect-button-radius;
+      transition: opacity .25s ease-out;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}

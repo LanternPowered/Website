@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+$discord-body-height: 400px !default;
+
+$discord-border-radius: 5px !default;
+$discord-font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif !default;
+$discord-font-size: 14px !default;
+
+$discord-padding: 20px !default;
+
+$discord-header-padding: $discord-padding !default;
+$discord-body-padding: $discord-padding !default;
+$discord-footer-padding: 6px 6px 6px $discord-padding !default;
+
+$discord-connect-button-width: 120px !default;
+$discord-connect-button-padding: 5px 10px !default;
+$discord-connect-button-radius: 4px !default;
+
+$discord-channel-font-size: 18px !default;
+$discord-channel-font-weight: 600 !default;
+
+$discord-body-scrollbar-width: 4px !default;
+$discord-body-scrollbar-padding: 5px !default;
+
+$discord-member-avatar-size: 16px !default;
+$discord-member-font-size: 16px !default;
+
+$discord-member-status-size: $discord-member-avatar-size / 2.2 !default;
+
+$discord-background-left-path: null !default;
+$discord-background-left-size: 200px !default;
+
+$discord-background-right-path: null !default;
+$discord-background-right-size: 110px !default;
+
+/// Colors
+
+// Discord Theme Colors
+
+$discord-theme-light-color: #7289da !default;
+$discord-theme-dark-color: #202225 !default;
+
+// Widget Colors
+$discord-font-color: white !default;
+$discord-members-font-color: darken($discord-font-color, 50) !default;
+
+$discord-header-color: $discord-theme-light-color !default;
+$discord-body-color: $discord-theme-dark-color !default;
+$discord-footer-color: $discord-theme-dark-color !default;
+$discord-connect-button-color: lighten($discord-footer-color, 7) !default;
+
+$discord-member-status-online-color: #43b581 !default;
+$discord-member-status-dnd-color: #f04747 !default;
+$discord-member-status-idle-color: #faa61a !default;
+

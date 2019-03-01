@@ -1,0 +1,55 @@
+<div class="discord-widget">
+    <div class="dw-header">
+        <a class="dw-logo" href="https://discordapp.com"><img src="discord/discord_text_logo.svg" alt="Discord Logo" height="34px"></a>
+        <div class="dw-header-count"><strong class="count">0</strong> Members Online</div>
+    </div>
+    <div class="dw-body">
+        <div class="dw-channels"></div>
+        <div class="dw-members-online">
+            <div class="dw-members-online-title">Members Online</div>
+            <div class="dw-members"></div>
+        </div>
+    </div>
+    <div class="dw-footer">
+        <div class="dw-footer-info">Free voice chat from Discord</div>
+        <a class="dw-connect-btn" href="">Connect</a>
+    </div>
+</div>
+<script>
+    $(function () {
+        $.getJSON("https://discordapp.com/api/guilds/263723943054016513/widget.json", function (data) {
+            $('.dw-connect-btn').attr('href', data['instant_invite']);
+
+            var members = data['members'];
+            $('.dw-header-count .count').html(members.length);
+
+            var channels = data['channels'];
+            var channelsInfo = '';
+            for (var i = 0; i < channels.length; i++) {
+                channelsInfo += '<div class="dw-channel">' + channels[i]['name'] + '</div>';
+            }
+            $('.dw-channels').html(channelsInfo);
+
+            var membersInfo = '';
+            for (var i = 0; i < members.length; i++) {
+                var member = members[i];
+                var gameInfo = '';
+                if (member.hasOwnProperty('game')) {
+                    gameInfo = '<div class="dw-member-game">' + member['game']['name'] + '</div>';
+                }
+                var memberInfo =
+                    '<div class="dw-member">' +
+                    '    <div class="dw-member-avatar">' +
+                    '        <img src="' + member['avatar_url'] + '" alt="">' +
+                    '        <span class="dw-member-status dw-member-status-' + member['status'] + '"></span>' +
+                    '    </div>' +
+                    '    <div class="dw-member-name">' + member['username'] + '</div>' +
+                    '    ' + gameInfo +
+                    '</div>';
+                membersInfo += '\n' + memberInfo;
+            }
+
+            $('.dw-members').html(membersInfo);
+        });
+    });
+</script>

@@ -16,6 +16,13 @@ $footer-height: 50px;
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Mina');
 
+$discord-header-color: $lantern-dark-green;
+$discord-background-left-path: url(/discord/discord_background_left.png);
+$discord-background-right-path: url(/discord/discord_background_right.png);
+
+@import "discord_variables";
+@import "discord";
+
 body {
   font-family: 'Mina', serif;
 }
@@ -270,6 +277,6 @@ html, body {
 footer {
   position: relative;
   margin-top: -$footer-height;
-  height: $footer-height;
+  min-height: $footer-height;
   clear: both;
 }
