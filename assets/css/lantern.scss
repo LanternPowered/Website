@@ -27,7 +27,7 @@ $discord-background-right-path: url(/discord/discord_background_right.png);
 @import "discord";
 
 body {
-  font-family: 'Mina', serif;
+  font-family: Mina, Helvetica Neue, Helvetica, serif;
 }
 
 .no-top-padding {
@@ -81,9 +81,6 @@ body {
   width: 100vw;
   max-width: 100%;
   min-height: 40vh;
-  background-size: cover;
-  background-position: center center;
-  z-index: -2;
 }
 
 $section-padding: 25px;
@@ -224,6 +221,10 @@ footer {
   p {
     padding-bottom: 0;
   }
+}
+
+.copyright-years {
+  white-space: nowrap;
 }
 
 h1,

@@ -12,3 +12,6 @@ staticDir = "static"
 
 # The publish directory
 publishDir = "public"
+
+[params]
+  description = "An open source Minecraft: Java Edition server implementation."

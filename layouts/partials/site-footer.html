@@ -1,6 +1,6 @@
 <footer>
     <div class="container text-center">
-        <p>Copyright &copy; LanternPowered<span id="copyright_years"></span></p>
+        <p>Copyright &copy; LanternPowered<span class="copyright-years"></span></p>
     </div>
 </footer>
 <script>
@@ -10,9 +10,9 @@
 
         var value = startYear;
         if (value !== currentYear) {
-            value += '‑' + currentYear;
+            value += '-' + currentYear;
         }
 
-        $("#copyright_years").html(' ' + value);
+        $(".copyright-years").html(' ' + value);
     });
 </script>

@@ -1,4 +1,4 @@
-@import "discord_variables"; // Just for auto completion, will be removed
+@import "discord_variables";
 
 .discord-widget {
   font-family: $discord-font-family;
@@ -45,7 +45,7 @@
 
   .dw-body {
     background-color: $discord-body-color;
-    padding: $discord-body-padding;
+    padding: $discord-body-padding $discord-body-padding 0 $discord-body-padding;
     text-align: left;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -87,11 +87,12 @@
 
         .dw-member {
           padding-left: 10px;
+          padding-bottom: 5px;
           display: flex;
           align-items: center;
 
-          &:not(:last-of-type) {
-            padding-bottom: 5px;
+          &:last-of-type {
+            padding-bottom: $discord-body-padding;
           }
 
           .dw-member-game {
