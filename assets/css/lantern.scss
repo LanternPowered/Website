@@ -92,13 +92,16 @@ section {
 
 .navbar {
   padding: 0;
-  margin: auto;
   position: fixed;
   width: 100%;
   z-index: 1000;
 
   @include media-breakpoint-up('lg') {
     display: table;
+
+    .nav-link i {
+      vertical-align: middle;
+    }
   }
 
   .container {
@@ -128,14 +131,15 @@ section {
       }
     }
 
+    .navbar-base {
+      display: flex;
+      justify-content: space-between;
+    }
+
     @each $breakpoint in ('xs', 'sm', 'md') {
       @include media-breakpoint-only($breakpoint) {
         width: 100%;
         max-width: 100%;
-
-        button {
-          float: right;
-        }
 
         &:nth-child(1).navbar-scrolled {
           background-color: $navbar-scrolled-background-color;
@@ -176,6 +180,10 @@ section {
 .navbar-collapse {
   background-color: transparent;
 
+  &.collapse.show {
+    margin-bottom: 0;
+  }
+
   .nav-item {
     font-size: $navbar-font-size;
     text-align: center;
@@ -195,8 +203,7 @@ section {
 
   @include media-breakpoint-down('md') {
     background-color: rgba(white, .9);
-    border-radius: 3px;
-    border: 1px solid rgba(black, .1);
+    border-radius: 5px;
 
     .nav-item {
       padding: 0 1em;

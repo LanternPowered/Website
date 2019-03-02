@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <div>
+        <div class="navbar-base">
             <a class="navbar-brand" href="{{ if .IsHome }}#{{ else }}/{{ end }}"><img src="art/logo/lantern.svg" alt="Logo" width="40px"><span>Lantern</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -33,12 +33,12 @@
 </nav>
 <script>
     $(function () {
-        updateTooltips($('[data-toggle="tooltip"]'));
+        $('[data-toggle="tooltip"]').tooltip();
+
+        updateNavbarTooltips();
         updateNavbar();
 
-        $(window).resize(function () {
-            updateTooltips($('nav [data-toggle="tooltip"]'));
-        });
+        $(window).resize(updateNavbarTooltips);
         $(window).scroll(updateNavbar);
     });
 
@@ -51,7 +51,8 @@
         }
     }
 
-    function updateTooltips(target) {
+    function updateNavbarTooltips() {
+        var target = $('nav [data-toggle="tooltip"]');
         if ($(this).width() < 992) {
             target.tooltip('disable');
         } else {
