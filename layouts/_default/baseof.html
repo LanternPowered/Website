@@ -23,7 +23,7 @@
     {{ $css := resources.Get "css/lantern.scss" | resources.ToCSS | resources.Minify }}
     {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") }}
         {{ $cssSecure := $css | resources.Fingerprint "sha512" }}
-        <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $cssSecure.Data.Integrity }}" />
+        <link rel="stylesheet" href="{{ $css.Permalink }}?random={{ now.UnixNano }}" integrity="{{ $cssSecure.Data.Integrity }}" />
     {{ else }}
         <link rel="stylesheet" href="{{ $css.Permalink }}" />
     {{ end }}
