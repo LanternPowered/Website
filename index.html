@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    
+    <title>Lantern </title>
+    <meta name="description" content="An open source Minecraft: Java Edition server implementation.">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+    
+    
+    <meta name="ROBOTS" content="INDEX, FOLLOW">
+    
+
+    
+    
+        
+        <link rel="stylesheet" href="https://www.lanternpowered.org/css/lantern.min.css?random=1551553168337068363" integrity="sha512-30tYyIIEyOzIecajOvl2JOXl1tW7qacU6Nogb2XLTWD5yN6QPqKwgMqoSlFIHxGpgo5Wep9NIWJR32mdDInrkg==" />
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"  crossorigin="anonymous"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    
+<link rel="apple-touch-icon" sizes="180x180" href="/art/logo/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/art/logo/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/art/logo/favicon/favicon-16x16.png">
+<link rel="manifest" href="/art/logo/favicon/site.webmanifest">
+<link rel="mask-icon" href="/art/logo/favicon/safari-pinned-tab.svg" color="#93cdb9">
+<link rel="shortcut icon" href="/art/logo/favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#3c6a5f">
+<meta name="msapplication-TileImage" content="/art/logo/favicon/mstile-144x144.png">
+<meta name="msapplication-config" content="/art/logo/favicon/browserconfig.xml">
+<meta name="theme-color" content="#93cdb9">
+
+    
+    <link href="https://www.lanternpowered.org/index.xml" rel="alternate" type="application/rss+xml" title="Lantern" />
+    <link href="https://www.lanternpowered.org/index.xml" rel="feed" type="application/rss+xml" title="Lantern" />
+    
+</head>
+
+<body>
+<div class="content-wrap">
+    <div class="content">
+        <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <div class="navbar-base">
+            <a class="navbar-brand" href="#"><img src="art/logo/lantern.svg" alt="Logo" width="40px"><span>Lantern</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="container">
+        <div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/LanternPowered" data-toggle="tooltip" data-placement="bottom" title="GitHub">
+                            <i class="fab fa-github"></i><span class="icon-info">GitHub</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://discord.gg/WQd25d2" data-toggle="tooltip" data-placement="bottom" title="Discord">
+                            <i class="fab fa-discord"></i><span class="icon-info">Discord</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://twitter.com/LanternPowered" data-toggle="tooltip" data-placement="bottom" title="Twitter">
+                            <i class="fab fa-twitter"></i><span class="icon-info">Twitter</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+
+        updateNavbarTooltips();
+        updateNavbar();
+
+        $(window).resize(updateNavbarTooltips);
+        $(window).scroll(updateNavbar);
+    });
+
+    function updateNavbar() {
+        var target = $('nav .container');
+        if ($(window).scrollTop() > 20) {
+            target.addClass('navbar-scrolled');
+        } else {
+            target.removeClass('navbar-scrolled');
+        }
+    }
+
+    function updateNavbarTooltips() {
+        var target = $('nav [data-toggle="tooltip"]');
+        if ($(this).width() < 992) {
+            target.tooltip('disable');
+        } else {
+            target.tooltip('enable');
+        }
+    }
+</script>
+        
+    <div>
+        <img class="home-background" src="art/home_page_header.svg" alt="Header" />
+        <section class="background-lantern-green no-top-padding">
+            <div class="container title padding-top-20px">
+                <div class="row col-lg-12 text-center">
+                    <h1>Lantern</h1>
+                    <p class="padding-top-10px">An open source Minecraft: Java Edition server implementation.</p>
+                </div>
+            </div>
+        </section>
+        <section class="background-lantern-dark-green">
+            <div class="container">
+                <div class="row padding-top-10px">
+                    <div class="col col-12 col-md-4 text-center padding-top-10px">
+                        <i class="fab fa-github text-6rem"></i>
+                        <h2 class="padding-top-20px">Open Source</h2>
+                        <p>Lantern is completely open source, which means that everyone can contribute.
+                            The project can be found on
+                            <a href="https://github.com/LanternPowered/Lantern" data-toggle="tooltip" data-placement="bottom" title="Lantern @ GitHub">GitHub</a>.</p>
+                    </div>
+                    <div class="col col-12 col-md-4 text-center padding-top-10px">
+                        <i class="fas fa-cog text-6rem"></i>
+                        <h2 class="padding-top-20px">Customizable</h2>
+                        <p>Lantern implements the API designed by
+                            <a href="https://www.spongepowered.org/" data-toggle="tooltip" data-placement="bottom" title="Sponge - Minecraft: Java Edition Modding API">Sponge</a>.
+                            Plugins designed using the API can be used for Lantern.</p>
+                    </div>
+                    <div class="col col-12 col-md-4 text-center padding-top-10px">
+                        <i class="fas fa-puzzle-piece text-6rem"></i>
+                        <h2 class="padding-top-20px">Compatible</h2>
+                        <p>Lantern is compatible with the latest version of
+                            <a href="https://minecraft.net/en-us/" data-toggle="tooltip" data-placement="bottom" title="Minecraft">Minecraft: Java Edition</a>.
+                            You don't need a special client to join the server.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="background-lantern-green">
+            <div class="container">
+                <div class="row padding-top-10px justify-content-md-center">
+                    <div class="col col-12 col-md-6 col-lg-5 text-center padding-top-10px m-auto">
+                        <h2>Community</h2>
+                        <p>The community is located in a Discord server. This is the place where we talk about development, answer questions, etc. Feel free to join us!</p>
+                    </div>
+                    <div class="col col-12 col-md-6 col-lg-5 padding-top-10px">
+                        <div class="discord-widget">
+    <div class="dw-header">
+        <a class="dw-logo" href="https://discordapp.com"><img src="discord/discord_text_logo.svg" alt="Discord Logo" height="34px"></a>
+        <div class="dw-header-count"><strong class="count">0</strong> Members Online</div>
+    </div>
+    <div class="dw-body">
+        <div class="dw-channels"></div>
+        <div class="dw-members-online">
+            <div class="dw-members-online-title">Members Online</div>
+            <div class="dw-members"></div>
+        </div>
+    </div>
+    <div class="dw-footer">
+        <div class="dw-footer-info">Free voice chat from Discord</div>
+        <a class="dw-connect-btn" href="">Connect</a>
+    </div>
+</div>
+<script>
+    $(function () {
+        $.getJSON("https://discordapp.com/api/guilds/263723943054016513/widget.json", function (data) {
+            $('.dw-connect-btn').attr('href', data['instant_invite']);
+
+            var members = data['members'];
+            $('.dw-header-count .count').html(members.length);
+
+            var channels = data['channels'];
+            var channelsInfo = '';
+            for (var i = 0; i < channels.length; i++) {
+                channelsInfo += '<div class="dw-channel">' + channels[i]['name'] + '</div>';
+            }
+            $('.dw-channels').html(channelsInfo);
+
+            var membersInfo = '';
+            for (var i = 0; i < members.length; i++) {
+                var member = members[i];
+                var gameInfo = '';
+                if (member.hasOwnProperty('game')) {
+                    gameInfo = '<div class="dw-member-game">' + member['game']['name'] + '</div>';
+                }
+                var memberInfo =
+                    '<div class="dw-member">' +
+                    '    <div class="dw-member-avatar">' +
+                    '        <img src="' + member['avatar_url'] + '" alt="">' +
+                    '        <span class="dw-member-status dw-member-status-' + member['status'] + '"></span>' +
+                    '    </div>' +
+                    '    <div class="dw-member-name">' + member['username'] + '</div>' +
+                    '    ' + gameInfo +
+                    '</div>';
+                membersInfo += '\n' + memberInfo;
+            }
+
+            $('.dw-members').html(membersInfo);
+        });
+    });
+</script>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    </div>
+</div>
+<footer>
+    <div class="container text-center">
+        <p>Copyright &copy; LanternPowered<span class="copyright-years"></span></p>
+    </div>
+</footer>
+<script>
+    $(function () {
+        var startYear = 2015;
+        var currentYear = new Date().getFullYear();
+
+        var value = startYear;
+        if (value !== currentYear) {
+            value += '-' + currentYear;
+        }
+
+        $(".copyright-years").html(' ' + value);
+    });
+</script>
+
+</body>
+</html>

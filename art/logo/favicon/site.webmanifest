@@ -1,0 +1,19 @@
+{
+    "name": "Lantern",
+    "short_name": "Lantern",
+    "icons": [
+        {
+            "src": "/art/logo/favicon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/art/logo/favicon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#93cdb9",
+    "background_color": "#93cdb9",
+    "display": "standalone"
+}
